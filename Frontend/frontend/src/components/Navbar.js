@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar as RSNavbar, Nav, NavItem, NavLink as RSNavLink } from 'reactstrap';
-import { FaHome, FaFilm, FaStar, FaUser, FaCog, FaSignInAlt, FaUserPlus } from 'react-icons/fa';
+import { FaCog, FaHome, FaStar,FaSignOutAlt } from 'react-icons/fa';
 
 const Navbar = () => {
   return (
@@ -13,37 +13,25 @@ const Navbar = () => {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/movies" className="nav-link" activeClassName="active">
-            <FaFilm className="nav-icon" /> Movies
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink to="/reviews" className="nav-link" activeClassName="active">
-            <FaStar className="nav-icon" /> Reviews
-          </NavLink>
-        </NavItem>
-        <NavItem>
           <NavLink to="/favorites" className="nav-link" activeClassName="active">
             <FaStar className="nav-icon" /> Favorites
           </NavLink>
         </NavItem>
       </Nav>
+
+
+      //right side
       <Nav className="ml-auto" navbar>
         <NavItem>
-          <RSNavLink to="/admin" className="nav-link" activeClassName="active">
+        <NavLink to="/admin" className="nav-link" activeClassName="active">
             <FaCog className="nav-icon" /> Admin
-          </RSNavLink>
+          </NavLink>
         </NavItem>
         <NavItem>
-          <RSNavLink to="/login" className="nav-link" activeClassName="active">
-            <FaSignInAlt className="nav-icon" /> Login
-          </RSNavLink>
-        </NavItem>
-        <NavItem>
-          <RSNavLink to="/register" className="nav-link" activeClassName="active">
-            <FaUserPlus className="nav-icon" /> Register
-          </RSNavLink>
-        </NavItem>
+        <NavLink to="/logout" className="nav-link" activeClassName="active">
+          <FaSignOutAlt className="nav-icon" /> Logout
+        </NavLink>
+      </NavItem>
       </Nav>
     </RSNavbar>
   );
