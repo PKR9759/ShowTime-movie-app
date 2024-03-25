@@ -1,34 +1,50 @@
 import React from 'react';
-import { Navbar as RSNavbar, Nav, NavItem, NavLink, Input, InputGroup, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Navbar as RSNavbar, Nav, NavItem, NavLink as RSNavLink } from 'reactstrap';
+import { FaHome, FaFilm, FaStar, FaUser, FaCog, FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
 const Navbar = () => {
   return (
-    <RSNavbar color="dark" dark expand="md" className="mb-4">
-      <Link to="/" className="navbar-brand">My Movies App</Link>
-      <Nav className="ml-auto" navbar>
+    <RSNavbar color="dark" dark expand="md" className="navbar">
+      <Nav className="mr-auto" navbar>
         <NavItem>
-          <NavLink tag={Link} to="/movies">Movies</NavLink>
+          <NavLink to="/" className="nav-link" activeClassName="active" exact>
+            <FaHome className="nav-icon" /> Home
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to="/reviews">Reviews</NavLink>
+          <NavLink to="/movies" className="nav-link" activeClassName="active">
+            <FaFilm className="nav-icon" /> Movies
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to="/users">Users</NavLink>
+          <NavLink to="/reviews" className="nav-link" activeClassName="active">
+            <FaStar className="nav-icon" /> Reviews
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink tag={Link} to="/favorites">Favorites</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink tag={Link} to="/admin">Admin</NavLink>
+          <NavLink to="/favorites" className="nav-link" activeClassName="active">
+            <FaStar className="nav-icon" /> Favorites
+          </NavLink>
         </NavItem>
       </Nav>
-      <InputGroup>
-        <Input placeholder="Search movies..." />
-        <div className="input-group-append">
-          <span className="input-group-text" id="basic-addon2">Search</span>
-        </div>
-      </InputGroup>
+      <Nav className="ml-auto" navbar>
+        <NavItem>
+          <RSNavLink to="/admin" className="nav-link" activeClassName="active">
+            <FaCog className="nav-icon" /> Admin
+          </RSNavLink>
+        </NavItem>
+        <NavItem>
+          <RSNavLink to="/login" className="nav-link" activeClassName="active">
+            <FaSignInAlt className="nav-icon" /> Login
+          </RSNavLink>
+        </NavItem>
+        <NavItem>
+          <RSNavLink to="/register" className="nav-link" activeClassName="active">
+            <FaUserPlus className="nav-icon" /> Register
+          </RSNavLink>
+        </NavItem>
+      </Nav>
     </RSNavbar>
   );
 }

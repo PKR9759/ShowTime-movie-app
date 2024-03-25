@@ -1,23 +1,33 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
+import Navbar from '../components/Navbar';
+import MovieCard from '../components/MovieCard';
+import Corousel from '../components/Corousel';
 
 const Home = () => {
+  // Sample data for movie list
+  const movies = [
+    { id: 1, title: 'Movie 1', imageUrl: 'https://via.placeholder.com/150', rating: 8.5 },
+    { id: 2, title: 'Movie 2', imageUrl: 'https://via.placeholder.com/150', rating: 7.8 },
+    { id: 3, title: 'Movie 3', imageUrl: 'https://via.placeholder.com/150', rating: 9.0 },
+    // Add more movie data as needed
+  ];
+
   return (
-    <div>
-      
-      <Container className="mt-4">
-        <h1>Welcome to My Movies App</h1>
-        <h3>Trending Movies</h3>
+    <div className="home-page">
+      <Navbar />
+
+      <Container fluid className="py-5">
+        <h2 className="text-center mb-4">Trending Movies</h2>
+        <Corousel />
+      </Container>
+
+      <Container className="mt-5">
+        <h2 className="text-center mb-4">All Movies</h2>
         <Row>
-          {[1, 2, 3, 4].map((movie) => (
-            <Col sm="3" key={movie}>
-              <Card>
-                <CardImg top width="100%" src={`https://via.placeholder.com/300x400?text=Movie${movie}`} alt={`Movie ${movie}`} />
-                <CardBody>
-                  <CardTitle tag="h5">Movie {movie}</CardTitle>
-                  <CardSubtitle tag="h6" className="mb-2 text-muted">Subtitle</CardSubtitle>
-                </CardBody>
-              </Card>
+          {movies.map(movie => (
+            <Col md={3} key={movie.id}>
+              <MovieCard movie={movie} />
             </Col>
           ))}
         </Row>
@@ -27,3 +37,4 @@ const Home = () => {
 }
 
 export default Home;
+  
