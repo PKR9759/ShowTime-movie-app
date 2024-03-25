@@ -1,0 +1,5 @@
+.carousel-container {
+    max-height: 400px; /* Adjust the max-height as needed */
+    overflow: hidden;
+  }
+  
