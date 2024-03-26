@@ -32,8 +32,8 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public void updateMovie(Movie movie) {
-        movieDAO.updateMovie(movie);
+    public void updateMovie(Long id,Movie movie) {
+        movieDAO.updateMovie(id,movie);
     }
 
     @Override
