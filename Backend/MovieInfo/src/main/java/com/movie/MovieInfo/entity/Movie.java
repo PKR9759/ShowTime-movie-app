@@ -13,12 +13,13 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Override
+   
+	@Override
 	public String toString() {
 		return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", director=" + director
-				+ ", actors=" + actors + ", genre=" + genre + ", releaseDate=" + releaseDate + ", type=" + type
-				+ ", imdbRating=" + imdbRating + ", duration=" + duration + ", language=" + language + ", country="
-				+ country + ", trailerUrl=" + trailerUrl + ", poster=" + Arrays.toString(poster) + "]";
+				+ ", actors=" + actors + ", releaseDate=" + releaseDate + ", type=" + type + ", imdbRating="
+				+ imdbRating + ", duration=" + duration + ", language=" + language + ", country=" + country
+				+ ", trailerUrl=" + trailerUrl + "]";
 	}
 
 	public Long getId() {
@@ -61,14 +62,6 @@ public class Movie {
 		this.actors = actors;
 	}
 
-	public String getGenre() {
-		return genre;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
-
 	public Date getReleaseDate() {
 		return releaseDate;
 	}
@@ -93,11 +86,11 @@ public class Movie {
 		this.imdbRating = imdbRating;
 	}
 
-	public int getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 
@@ -125,30 +118,18 @@ public class Movie {
 		this.trailerUrl = trailerUrl;
 	}
 
-	public byte[] getPoster() {
-		return poster;
-	}
-
-	public void setPoster(byte[] poster) {
-		this.poster = poster;
-	}
-
 	private String title;
     private String description;
     private String director;
     private String actors;
-    private String genre;
     @Temporal(TemporalType.DATE)
     private Date releaseDate;
-    private String type; // Hollywood, Bollywood, South Indian, etc.
-    private double imdbRating; // IMDb rating of the movie
-    private int duration; // Duration of the movie in minutes
-    private String language; // Language of the movie
-    private String country; // Country of origin
-    private String trailerUrl; // URL of the movie trailer
-    
-    @Lob
-    private byte[] poster; // Byte array to store the image data
+    private String type; 
+    private double imdbRating; 
+    private String duration; 
+    private String language; 
+    private String country; 
+    private String trailerUrl; 
+   
 
-    // Getters and setters
 }
