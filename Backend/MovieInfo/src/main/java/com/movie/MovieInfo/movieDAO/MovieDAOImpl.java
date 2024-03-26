@@ -40,7 +40,7 @@ public class MovieDAOImpl implements MovieDAO {
     	themovie.setGenre(movie.getGenre());
     	themovie.setTitle(movie.getTitle());
     	themovie.setReleaseDate(movie.getReleaseDate());
-    	themovie.setReviews(movie.getReviews());
+//    	themovie.setReviews(movie.getReviews());
     	entityManager.merge(themovie);
     }
 

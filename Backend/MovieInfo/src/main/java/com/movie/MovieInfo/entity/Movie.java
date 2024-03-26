@@ -7,16 +7,15 @@ import java.util.List;
 @Entity
 @Table(name = "movie")
 public class Movie {
-
-    @Override
-	public String toString() {
-		return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", director=" + director
-				+ ", actors=" + actors + ", genre=" + genre + ", releaseDate=" + releaseDate + ", reviews=" + reviews
-				+ "]";
-	}
-
+   
 	public Long getId() {
 		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", director=" + director
+				+ ", actors=" + actors + ", genre=" + genre + ", releaseDate=" + releaseDate + "]";
 	}
 
 	public void setId(Long id) {
@@ -71,14 +70,6 @@ public class Movie {
 		this.releaseDate = releaseDate;
 	}
 
-	public List<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
-
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -91,9 +82,4 @@ public class Movie {
     @Temporal(TemporalType.DATE)
     private Date releaseDate;
 
-    @OneToMany(mappedBy = "movie")
-    private List<Review> reviews;
-
-    // Getters and setters
-    // Constructor
 }
