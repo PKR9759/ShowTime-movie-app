@@ -43,7 +43,7 @@ public class Favorite {
 		this.movie = movie;
 	}
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
 

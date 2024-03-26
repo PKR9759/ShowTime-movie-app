@@ -14,8 +14,8 @@ public class User {
     private String username;
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // Adding cascade attribute here
-    private List<Favorite> favorites;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Movie> favorites;
 
     @Override
     public String toString() {
@@ -47,11 +47,15 @@ public class User {
         this.password = password;
     }
 
-    public List<Favorite> getFavorites() {
+    public List<Movie> getFavorites() {
         return favorites;
     }
 
-    public void setFavorites(List<Favorite> favorites) {
+    public void setFavorites(List<Movie> favorites) {
         this.favorites = favorites;
+    }
+    public void setSingleFavorite(Movie m) {
+    	this.favorites.add(m);
+    	
     }
 }
