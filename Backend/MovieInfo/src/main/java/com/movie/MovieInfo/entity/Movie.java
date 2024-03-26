@@ -81,5 +81,5 @@ public class Movie {
     private String genre;
     @Temporal(TemporalType.DATE)
     private Date releaseDate;
-
+          
 }

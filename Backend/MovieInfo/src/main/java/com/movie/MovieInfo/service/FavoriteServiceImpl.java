@@ -21,20 +21,20 @@ public class FavoriteServiceImpl implements FavoriteService {
         return favoriteDAO.getAllFavorites();
     }
 
-    @Override
-    public Favorite getFavoriteById(Long id) {
-        return favoriteDAO.getFavoriteById(id);
-    }
+//    @Override
+//    public Favorite getFavoriteById(Long id) {
+//        return favoriteDAO.getFavoriteById(id);
+//    }
 
     @Override
-    public void addFavorite(Favorite favorite) {
-        favoriteDAO.addFavorite(favorite);
+    public void addFavorite(Long user_id,Long movie_id) {
+        favoriteDAO.addFavorite(user_id,movie_id);
     }
 
-    @Override
-    public void updateFavorite(Favorite favorite) {
-        favoriteDAO.updateFavorite(favorite);
-    }
+//    @Override
+//    public void updateFavorite(Favorite favorite) {
+//        favoriteDAO.updateFavorite(favorite);
+//    }
 
     @Override
     public void deleteFavorite(Long id) {
