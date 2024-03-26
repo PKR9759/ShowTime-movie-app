@@ -32,8 +32,16 @@ public class MovieDAOImpl implements MovieDAO {
     }
 
     @Override
-    public void updateMovie(Movie movie) {
-        entityManager.merge(movie);
+    public void updateMovie(Long id,Movie movie) {
+    	Movie themovie = entityManager.find(Movie.class, id);
+    	themovie.setActors(movie.getActors());
+    	themovie.setDescription(movie.getDescription());
+    	themovie.setDirector(movie.getDirector());
+    	themovie.setGenre(movie.getGenre());
+    	themovie.setTitle(movie.getTitle());
+    	themovie.setReleaseDate(movie.getReleaseDate());
+    	themovie.setReviews(movie.getReviews());
+    	entityManager.merge(themovie);
     }
 
     @Override

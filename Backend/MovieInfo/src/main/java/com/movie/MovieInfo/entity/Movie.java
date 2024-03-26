@@ -88,6 +88,7 @@ public class Movie {
     private String director;
     private String actors;
     private String genre;
+    @Temporal(TemporalType.DATE)
     private Date releaseDate;
 
     @OneToMany(mappedBy = "movie")
