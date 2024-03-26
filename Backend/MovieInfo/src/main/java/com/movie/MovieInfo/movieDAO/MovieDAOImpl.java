@@ -1,11 +1,9 @@
 package com.movie.MovieInfo.movieDAO;
 
+import com.movie.MovieInfo.entity.Movie;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import org.springframework.stereotype.Repository;
-
-import com.movie.MovieInfo.entity.Movie;
 
 import java.util.List;
 
@@ -17,8 +15,7 @@ public class MovieDAOImpl implements MovieDAO {
 
     @Override
     public List<Movie> getAllMovies() {
-        Query query = entityManager.createQuery("FROM Movie");
-        return query.getResultList();
+        return entityManager.createQuery("FROM Movie", Movie.class).getResultList();
     }
 
     @Override
@@ -32,16 +29,8 @@ public class MovieDAOImpl implements MovieDAO {
     }
 
     @Override
-    public void updateMovie(Long id,Movie movie) {
-    	Movie themovie = entityManager.find(Movie.class, id);
-    	themovie.setActors(movie.getActors());
-    	themovie.setDescription(movie.getDescription());
-    	themovie.setDirector(movie.getDirector());
-    	themovie.setGenre(movie.getGenre());
-    	themovie.setTitle(movie.getTitle());
-    	themovie.setReleaseDate(movie.getReleaseDate());
-//    	themovie.setReviews(movie.getReviews());
-    	entityManager.merge(themovie);
+    public void updateMovie(Movie movie) {
+        entityManager.merge(movie);
     }
 
     @Override

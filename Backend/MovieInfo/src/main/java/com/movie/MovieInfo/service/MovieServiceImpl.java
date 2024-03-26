@@ -1,11 +1,10 @@
 package com.movie.MovieInfo.service;
 
+import com.movie.MovieInfo.entity.Movie;
+import com.movie.MovieInfo.movieDAO.MovieDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.movie.MovieInfo.entity.Movie;
-import com.movie.MovieInfo.movieDAO.MovieDAO;
 
 import java.util.List;
 
@@ -32,8 +31,8 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public void updateMovie(Long id,Movie movie) {
-        movieDAO.updateMovie(id,movie);
+    public void updateMovie(Movie movie) {
+        movieDAO.updateMovie(movie);
     }
 
     @Override
