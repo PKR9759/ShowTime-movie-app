@@ -1,8 +1,8 @@
-package com.movie.movieDAO;
+package com.movie.MovieInfo.movieDAO;
 
 import java.util.List;
 
-import com.movie.entity.Movie;
+import com.movie.MovieInfo.entity.Movie;
 
 public interface MovieDAO {
     List<Movie> getAllMovies();

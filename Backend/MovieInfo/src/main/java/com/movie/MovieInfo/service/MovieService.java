@@ -1,8 +1,8 @@
-package com.movie.service;
+package com.movie.MovieInfo.service;
 
 import java.util.List;
 
-import com.movie.entity.Movie;
+import com.movie.MovieInfo.entity.Movie;
 
 public interface MovieService {
     List<Movie> getAllMovies();

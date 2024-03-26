@@ -1,10 +1,10 @@
-package com.movie.movieDAO;
+package com.movie.MovieInfo.service;
 
 import java.util.List;
 
-import com.movie.entity.User;
+import com.movie.MovieInfo.entity.User;
 
-public interface UserDAO {
+public interface UserService {
     List<User> getAllUsers();
     User getUserById(Long id);
     void addUser(User user);

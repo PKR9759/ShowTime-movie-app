@@ -1,8 +1,8 @@
-package com.movie.movieDAO;
+package com.movie.MovieInfo.movieDAO;
 
 import java.util.List;
 
-import com.movie.entity.Review;
+import com.movie.MovieInfo.entity.Review;
 
 public interface ReviewDAO {
     List<Review> getAllReviews();

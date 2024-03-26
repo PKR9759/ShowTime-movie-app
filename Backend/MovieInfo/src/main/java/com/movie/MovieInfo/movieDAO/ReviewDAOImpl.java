@@ -1,11 +1,11 @@
-package com.movie.movieDAO;
+package com.movie.MovieInfo.movieDAO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import org.springframework.stereotype.Repository;
 
-import com.movie.entity.Review;
+import com.movie.MovieInfo.entity.Review;
 
 import java.util.List;
 

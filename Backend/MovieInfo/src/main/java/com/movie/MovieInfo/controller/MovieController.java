@@ -1,4 +1,4 @@
-package com.movie.controller;
+package com.movie.MovieInfo.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
