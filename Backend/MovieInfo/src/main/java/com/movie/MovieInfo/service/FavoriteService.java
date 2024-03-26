@@ -1,7 +1,7 @@
-package com.movie.service;
+package com.movie.MovieInfo.service;
 import java.util.List;
 
-import com.movie.entity.Favorite;
+import com.movie.MovieInfo.entity.Favorite;
 
 public interface FavoriteService {
     List<Favorite> getAllFavorites();

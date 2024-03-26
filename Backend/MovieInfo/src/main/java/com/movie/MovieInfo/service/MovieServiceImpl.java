@@ -1,11 +1,11 @@
-package com.movie.service;
+package com.movie.MovieInfo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.movie.entity.Movie;
-import com.movie.movieDAO.MovieDAO;
+import com.movie.MovieInfo.entity.Movie;
+import com.movie.MovieInfo.movieDAO.MovieDAO;
 
 import java.util.List;
 

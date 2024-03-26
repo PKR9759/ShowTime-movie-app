@@ -1,8 +1,8 @@
-package com.movie.service;
+package com.movie.MovieInfo.service;
 
 import java.util.List;
 
-import com.movie.entity.Review;
+import com.movie.MovieInfo.entity.Review;
 
 public interface ReviewService {
     List<Review> getAllReviews();

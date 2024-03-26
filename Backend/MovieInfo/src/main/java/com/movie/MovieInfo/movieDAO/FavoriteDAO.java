@@ -1,8 +1,8 @@
-package com.movie.movieDAO;
+package com.movie.MovieInfo.movieDAO;
 
 import java.util.List;
 
-import com.movie.entity.Favorite;
+import com.movie.MovieInfo.entity.Favorite;
 
 public interface FavoriteDAO {
     List<Favorite> getAllFavorites();
