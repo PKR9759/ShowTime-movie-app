@@ -43,8 +43,6 @@ public class UserDAOImpl implements UserDAO {
     	if(username != null) {
     		user.setUsername(username);
     	}
-    	   
-    	user.setReviews(theuser.getReviews());
     	
     	user.setFavorites(theuser.getFavorites());
         entityManager.merge(user);
