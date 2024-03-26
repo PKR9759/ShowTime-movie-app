@@ -14,28 +14,28 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    @GetMapping
+    @GetMapping("/getallmovies")
     public List<Movie> getAllMovies() {
         return movieService.getAllMovies();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getmoviebyid/{id}")
     public Movie getMovieById(@PathVariable Long id) {
         return movieService.getMovieById(id);
     }
 
-    @PostMapping
+    @PostMapping("/addmovie")
     public void addMovie(@RequestBody Movie movie) {
         movieService.addMovie(movie);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public void updateMovie(@PathVariable Long id, @RequestBody Movie movie) {
-        movie.setId(id); // Ensure the ID is set
-        movieService.updateMovie(movie);
+        movie.setId(id); 
+        movieService.updateMovie(id,movie);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("delete/{id}")
     public void deleteMovie(@PathVariable Long id) {
         movieService.deleteMovie(id);
     }
