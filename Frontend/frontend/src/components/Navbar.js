@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar as RSNavbar, Nav, NavItem, NavLink as RSNavLink } from 'reactstrap';
-import { FaCog, FaHome, FaStar,FaSignOutAlt } from 'react-icons/fa';
+import { FaCog, FaHome } from 'react-icons/fa';
 
 const Navbar = () => {
   return (
@@ -12,11 +12,7 @@ const Navbar = () => {
             <FaHome className="nav-icon" /> Home
           </NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink to="/favorites" className="nav-link" activeClassName="active">
-            <FaStar className="nav-icon" /> Favorites
-          </NavLink>
-        </NavItem>
+        
       </Nav>
 
 
@@ -27,11 +23,7 @@ const Navbar = () => {
             <FaCog className="nav-icon" /> Admin
           </NavLink>
         </NavItem>
-        <NavItem>
-        <NavLink to="/logout" className="nav-link" activeClassName="active">
-          <FaSignOutAlt className="nav-icon" /> Logout
-        </NavLink>
-      </NavItem>
+      
       </Nav>
     </RSNavbar>
   );

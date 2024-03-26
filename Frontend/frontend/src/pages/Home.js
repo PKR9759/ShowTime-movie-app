@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Navbar from '../components/Navbar';
 import MovieCard from '../components/MovieCard';
 import Corousel from '../components/Corousel';
+import axios from 'axios';
 
 const Home = () => {
-  // Sample data for movie list
-  const movies = [
-    { id: 1, title: 'Movie 1', imageUrl: 'https://via.placeholder.com/150', rating: 8.5 },
-    { id: 2, title: 'Movie 2', imageUrl: 'https://via.placeholder.com/150', rating: 7.8 },
-    { id: 3, title: 'Movie 3', imageUrl: 'https://via.placeholder.com/150', rating: 9.0 },
-    // Add more movie data as needed
-  ];
+  const [movies, setMovies] = useState([]);
+
+  // Fetch movie data from backend upon component mount
+  useEffect(() => {
+    axios.get('/api/movies')
+      .then(response => {
+        setMovies(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching movie data:', error);
+      });
+  }, []);
+
+  // Function to handle click on a movie card
+  const handleMovieClick = (movie) => {
+    // Implement your logic to show all details of the selected movie
+    console.log('Clicked Movie:', movie);
+  };
 
   return (
     <div className="home-page">
@@ -26,7 +38,7 @@ const Home = () => {
         <h2 className="text-center mb-4">All Movies</h2>
         <Row>
           {movies.map(movie => (
-            <Col md={3} key={movie.id}>
+            <Col md={3} key={movie.id} onClick={() => handleMovieClick(movie)}>
               <MovieCard movie={movie} />
             </Col>
           ))}
@@ -37,4 +49,3 @@ const Home = () => {
 }
 
 export default Home;
-  
