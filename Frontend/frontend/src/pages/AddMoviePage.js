@@ -3,9 +3,12 @@ import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import axios from 'axios';
 // import { useHistory } from 'react-router-dom';
 import base_url from '../api/Springboot_api';
+import { useNavigate } from 'react-router-dom';
+
 
 const AddMoviePage = () => {
-// const history = useHistory();
+  
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     title: '',
@@ -26,7 +29,7 @@ const AddMoviePage = () => {
     try {
       // Send a POST request to your backend API to add the movie
       await axios.post(`${base_url}/api/movies/addmovie`, formData);
-
+      navigate('/admin');
       // Optionally provide feedback to the user (e.g., toast message)
       // alert('Movie added successfully');
 

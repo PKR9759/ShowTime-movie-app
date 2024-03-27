@@ -28,11 +28,15 @@ const Home = () => {
     console.log('Clicked Movie:', movie);
   };
 
+
+
   // Filter movies based on search query
   const filteredMovies = movies.filter(movie =>
     movie.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+
+  
   return (
     <div className="home-page">
       <Navbar />

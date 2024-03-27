@@ -4,8 +4,12 @@ import { useParams } from 'react-router-dom';
 import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import axios from 'axios';
 import base_url from '../api/Springboot_api';
+import { useNavigate } from 'react-router-dom';
 
 const MovieUpdatePage = () => {
+
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [formData, setFormData] = useState({
     title: '',
@@ -44,6 +48,7 @@ const MovieUpdatePage = () => {
       .then(response => {
         console.log('Movie details updated successfully:', response.data);
         // Redirect to admin page or show success message
+        navigate('/admin');
       })
       .catch(error => {
         console.error('Error updating movie details:', error);
@@ -99,7 +104,7 @@ const MovieUpdatePage = () => {
           <Label for="imageUrl">Image URL</Label>
           <Input type="text" name="imageUrl" id="imageUrl" value={formData.imageUrl} onChange={handleChange} />
         </FormGroup>
-        <Button color="primary">Add Movie</Button>
+        <Button color="primary">Update Movie</Button>
       </Form>
     </Container>
   );

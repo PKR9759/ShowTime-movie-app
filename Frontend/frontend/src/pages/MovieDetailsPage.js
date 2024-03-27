@@ -13,7 +13,7 @@ const MovieDetailsPage = () => {
     // Fetch movie details from the backend based on the movie ID
     const fetchMovieDetails = async () => {
       try {
-        const response = await axios.get(`${base_url}/api/movies/getmoviebyid/${id}`); // Adjust the URL as per your backend API
+        const response = await axios.get(`${base_url}/api/movies/getmoviebyid/${id}`);
         setMovie(response.data);
       } catch (error) {
         console.error('Error fetching movie details:', error);
@@ -27,9 +27,13 @@ const MovieDetailsPage = () => {
     <Container className="mt-5">
       {movie && (
         <Row>
-          <Col md={{ size: 6, offset: 3 }}>
+          <Col md={6}>
             <Card className="shadow-lg">
-              <CardImg top width="100%" src={movie.imageUrl} alt={movie.title} />
+              <CardImg top src={movie.imageUrl} alt={movie.title} />
+            </Card>
+          </Col>
+          <Col md={6}>
+            <Card className="shadow-lg">
               <CardBody>
                 <CardTitle tag="h2" className="text-center">{movie.title}</CardTitle>
                 <CardText>
