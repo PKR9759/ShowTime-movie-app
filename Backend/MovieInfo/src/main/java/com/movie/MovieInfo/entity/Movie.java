@@ -19,7 +19,7 @@ public class Movie {
 		return "Movie [id=" + id + ", title=" + title + ", description=" + description + ", director=" + director
 				+ ", actors=" + actors + ", releaseDate=" + releaseDate + ", type=" + type + ", imdbRating="
 				+ imdbRating + ", duration=" + duration + ", language=" + language + ", country=" + country
-				+ ", trailerUrl=" + trailerUrl + "]";
+				+ ", trailerUrl=" + imageUrl + "]";
 	}
 
 	public Long getId() {
@@ -110,12 +110,12 @@ public class Movie {
 		this.country = country;
 	}
 
-	public String getTrailerUrl() {
-		return trailerUrl;
+	public String getimageUrl() {
+		return imageUrl;
 	}
 
-	public void setTrailerUrl(String trailerUrl) {
-		this.trailerUrl = trailerUrl;
+	public void setimageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	private String title;
@@ -129,7 +129,7 @@ public class Movie {
     private String duration; 
     private String language; 
     private String country; 
-    private String trailerUrl; 
+    private String imageUrl; 
    
 
 }

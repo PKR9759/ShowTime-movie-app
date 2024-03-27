@@ -41,8 +41,8 @@ public class MovieDAOImpl implements MovieDAO {
     	themovie.setDuration(movie.getDuration());
     	themovie.setLanguage(movie.getLanguage());
     	themovie.setCountry(movie.getCountry());
-    	themovie.setTrailerUrl(movie.getTrailerUrl());
-        entityManager.merge(movie);
+    	themovie.setimageUrl(movie.getimageUrl());
+        entityManager.merge(themovie);
     }
 
     @Override

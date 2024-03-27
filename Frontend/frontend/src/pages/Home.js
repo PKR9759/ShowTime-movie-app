@@ -3,14 +3,17 @@ import { Container, Row, Col } from 'reactstrap';
 import Navbar from '../components/Navbar';
 import MovieCard from '../components/MovieCard';
 import Corousel from '../components/Corousel';
+import Search from '../components/Search'; // Import the Search component
 import axios from 'axios';
+import base_url from '../api/Springboot_api';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Fetch movie data from backend upon component mount
   useEffect(() => {
-    axios.get('/api/movies')
+    axios.get(`${base_url}/api/movies/getallmovies`)
       .then(response => {
         setMovies(response.data);
       })
@@ -25,19 +28,25 @@ const Home = () => {
     console.log('Clicked Movie:', movie);
   };
 
+  // Filter movies based on search query
+  const filteredMovies = movies.filter(movie =>
+    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="home-page">
       <Navbar />
-
+      {/* Pass setSearchQuery function as prop */}
       <Container fluid className="py-5">
         <h2 className="text-center mb-4">Trending Movies</h2>
         <Corousel />
       </Container>
-
+      
       <Container className="mt-5">
         <h2 className="text-center mb-4">All Movies</h2>
+        <Search setSearchQuery={setSearchQuery} /> 
         <Row>
-          {movies.map(movie => (
+          {filteredMovies.map(movie => (
             <Col md={3} key={movie.id} onClick={() => handleMovieClick(movie)}>
               <MovieCard movie={movie} />
             </Col>
