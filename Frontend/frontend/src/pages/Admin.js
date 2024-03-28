@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { Link } from 'react-router-dom'; 
-import { FaPlus } from 'react-icons/fa'; // Import the plus icon
+import { Link } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa';
 import AdminMovieCard from '../components/AdminMovieCard';
 import Navbar from '../components/Navbar';
-import Search from '../components/Search'; // Import the Search component
+import Search from '../components/Search';
 import axios from 'axios';
 import base_url from '../api/Springboot_api';
+import { toast } from 'react-toastify'; // Import toast from react-toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import toast styles
 
 const AdminPage = () => {
   const [movies, setMovies] = useState([]);
@@ -15,9 +17,8 @@ const AdminPage = () => {
     title: '',
     rating: ''
   });
-  const [searchQuery, setSearchQuery] = useState(''); // Add state for search query
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // Fetch movie data from backend upon component mount
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -34,40 +35,45 @@ const AdminPage = () => {
 
   const toggleModal = () => setModal(!modal);
 
-  const handleChange = e => {
-    setSearchQuery(e.target.value); // Update search query
-  };
 
-  // Filter movies based on search query
+
   const filteredMovies = movies.filter(movie =>
     movie.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleSubmit = () => {
-    axios.post(`${base_url}/api/movies/addmovie`, formData)
-      .then(response => {
-        fetchMovies(); // Fetch updated movie list
-        toggleModal();
-      })
-      .catch(error => {
-        console.error('Error adding movie:', error);
-      });
-  };
 
-  const handleUpdate = (id, updatedData) => {
-    axios.put(`${base_url}/api/movies/update/${id}`, updatedData)
-      .then(response => {
-        fetchMovies(); // Fetch updated movie list
-      })
-      .catch(error => {
-        console.error('Error updating movie:', error);
-      });
-  };
+  // const handleUpdate = (id, updatedData) => {
+  //   axios.put(`${base_url}/api/movies/update/${id}`, updatedData)
+  //     .then(response => {
+  //       toast.success(`Movie updated successfully!`, { // Toast message for successful movie update
+  //         position: "top-right",
+  //         autoClose: 3000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined,
+  //       });
+  //       fetchMovies();
+  //     })
+  //     .catch(error => {
+  //       console.error('Error updating movie:', error);
+  //     });
+  // };
 
   const handleDelete = id => {
     axios.delete(`${base_url}/api/movies/delete/${id}`)
       .then(response => {
-        fetchMovies(); // Fetch updated movie list
+        toast.success(`Movie deleted successfully!`, { // Toast message for successful movie deletion
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        fetchMovies();
       })
       .catch(error => {
         console.error('Error deleting movie:', error);
@@ -79,17 +85,18 @@ const AdminPage = () => {
       <Navbar />
       <Container className="mt-5">
         <h1 className="text-center mb-4">Admin Dashboard</h1>
-        <Search setSearchQuery={setSearchQuery} /> {/* Pass setSearchQuery function as prop */}
+        <Search setSearchQuery={setSearchQuery} />
         <Button color="primary" className="mb-3 position-fixed top-0 end-0 me-3" onClick={toggleModal}>
           <FaPlus className="me-1" /> Add New Movie
         </Button>
         <Row>
           {filteredMovies.map(movie => (
             <Col sm="6" md="4" lg="3" key={movie.id}>
-              <AdminMovieCard movie={movie} onUpdate={handleUpdate} onDelete={handleDelete} />
+              <AdminMovieCard movie={movie}  onDelete={handleDelete} />
             </Col>
           ))}
         </Row>
+
         <Link to="/admin/add">
           <Button color="primary" className="mb-3 position-fixed top-0 end-0 me-3">
             <FaPlus className="me-1" /> Add New Movie

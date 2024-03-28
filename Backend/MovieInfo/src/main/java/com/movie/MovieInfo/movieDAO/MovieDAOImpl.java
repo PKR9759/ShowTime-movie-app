@@ -3,6 +3,8 @@ package com.movie.MovieInfo.movieDAO;
 import com.movie.MovieInfo.entity.Movie;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,7 +12,7 @@ import java.util.List;
 @Repository
 public class MovieDAOImpl implements MovieDAO {
 
-    @PersistenceContext
+    @Autowired
     private EntityManager entityManager;
 
     @Override

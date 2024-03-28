@@ -4,8 +4,12 @@ import { useParams } from 'react-router-dom';
 import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import axios from 'axios';
 import base_url from '../api/Springboot_api';
+import { useNavigate } from 'react-router-dom';
 
 const MovieUpdatePage = () => {
+
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [formData, setFormData] = useState({
     title: '',
@@ -18,7 +22,7 @@ const MovieUpdatePage = () => {
     duration: '',
     language: '',
     country: '',
-    imageUrl: '' // Add imageUrl field
+    imageUrl: '' 
   });
 
   useEffect(() => {
@@ -33,9 +37,13 @@ const MovieUpdatePage = () => {
       });
   }, [id]);
 
+
+
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,13 +51,16 @@ const MovieUpdatePage = () => {
     axios.put(`${base_url}/api/movies/update/${id}`, formData)
       .then(response => {
         console.log('Movie details updated successfully:', response.data);
-        // Redirect to admin page or show success message
+        // Redirect to admin page 
+        navigate('/admin');
       })
       .catch(error => {
         console.error('Error updating movie details:', error);
-        // Show error message to the user
+        
       });
   };
+
+  
 
   return (
     <Container className="mt-5">
@@ -99,7 +110,7 @@ const MovieUpdatePage = () => {
           <Label for="imageUrl">Image URL</Label>
           <Input type="text" name="imageUrl" id="imageUrl" value={formData.imageUrl} onChange={handleChange} />
         </FormGroup>
-        <Button color="primary">Add Movie</Button>
+        <Button color="primary">Update Movie</Button>
       </Form>
     </Container>
   );
