@@ -30,14 +30,10 @@ const AddMoviePage = () => {
       // Send a POST request to your backend API to add the movie
       await axios.post(`${base_url}/api/movies/addmovie`, formData);
       navigate('/admin');
-      // Optionally provide feedback to the user (e.g., toast message)
-      // alert('Movie added successfully');
-
-      // Optionally redirect the user to another page
-      // history.push('/movies'); 
+     
     } catch (error) {
       console.error('Error adding movie:', error);
-      // Handle error (e.g., display error message to the user)
+      
     }
   };
 

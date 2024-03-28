@@ -5,6 +5,9 @@ import axios from 'axios';
 import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
 import base_url from '../api/Springboot_api';
 
+
+
+
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
@@ -23,9 +26,12 @@ const MovieDetailsPage = () => {
     fetchMovieDetails();
   }, [id]);
 
+
+
+
   return (
     <Container className="mt-5">
-      {movie && (
+      {movie && ( //only give the movie description if movie is available(not null or undefined)
         <Row>
           <Col md={6}>
             <Card className="shadow-lg">

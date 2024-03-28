@@ -22,7 +22,7 @@ const MovieUpdatePage = () => {
     duration: '',
     language: '',
     country: '',
-    imageUrl: '' // Add imageUrl field
+    imageUrl: '' 
   });
 
   useEffect(() => {
@@ -37,9 +37,13 @@ const MovieUpdatePage = () => {
       });
   }, [id]);
 
+
+
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -47,14 +51,16 @@ const MovieUpdatePage = () => {
     axios.put(`${base_url}/api/movies/update/${id}`, formData)
       .then(response => {
         console.log('Movie details updated successfully:', response.data);
-        // Redirect to admin page or show success message
+        // Redirect to admin page 
         navigate('/admin');
       })
       .catch(error => {
         console.error('Error updating movie details:', error);
-        // Show error message to the user
+        
       });
   };
+
+  
 
   return (
     <Container className="mt-5">

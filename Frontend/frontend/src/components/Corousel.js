@@ -38,10 +38,6 @@ const Corousel = () => {
     setActiveIndex(nextIndex);
   };
 
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
 
   const slides = items.map((item) => (
     <CarouselItem key={item.key} style={{width:'50%'}}>

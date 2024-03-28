@@ -5,6 +5,7 @@ import { Card, CardImg, CardBody, CardTitle, Button } from 'reactstrap';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 
 const AdminMovieCard = ({ movie, onDelete }) => {
+  
   const handleDelete = () => {
     onDelete(movie.id);
   };

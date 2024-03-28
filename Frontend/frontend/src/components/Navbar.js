@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Navbar as RSNavbar, Nav, NavItem, NavLink as RSNavLink, Button } from 'reactstrap';
 import { FaCog, FaHome } from 'react-icons/fa';
 import LoginModal from './LoginModal';
-// import logo from '../assets/logo.png'; // Import your logo image
+
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
